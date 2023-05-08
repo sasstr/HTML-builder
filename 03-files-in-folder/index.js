@@ -12,7 +12,7 @@ readdir(pathDirectory, { withFileTypes: true })
       const { name } = parse(file.name);
       const extension = extname(file.name);
       const { size } = await stat(pathFile);
-      const result = `${name} - ${extension.slice(1)} - ${size / 1000}kb`;
+      const result = `${name} - ${extension.slice(1)} - ${(size / 1024).toFixed(2)}kb`;
 
       stdout.write(result);
       stdout.write(EOL);
